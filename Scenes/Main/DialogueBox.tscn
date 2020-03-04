@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Main/DialogueBox1.gd" type="Script" id=1]
+[ext_resource path="res://Images/dialogueBox.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/droid-sans/DroidSans.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/montreal/Montreal-Regular.ttf" type="DynamicFontData" id=4]
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 4 )
+
+[node name="DialogueBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1920.0
+margin_bottom = -1080.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialogueBox" type="Sprite" parent="."]
+z_index = 40
+texture = ExtResource( 2 )
+centered = false
+
+[node name="nameLabel" type="Label" parent="dialogueBox"]
+margin_left = 50.4019
+margin_top = 24.5548
+margin_right = 217.402
+margin_bottom = 85.5548
+custom_fonts/font = SubResource( 1 )
+text = "Name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="textLabel" type="Label" parent="dialogueBox"]
+margin_left = 40.0631
+margin_top = 113.727
+margin_right = 770.063
+margin_bottom = 255.727
+rect_pivot_offset = Vector2( 1086, -64 )
+custom_fonts/font = SubResource( 2 )
+text = "This is a long line of test text. I'm going to number these so its easier to keep track of them. So, 1 will begin right here. After 1, there is the number 2. After that, the number 3. Number 4 comes after that. And now I'll add the number 5. Then the"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}

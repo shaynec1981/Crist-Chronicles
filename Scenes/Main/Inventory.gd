@@ -175,13 +175,17 @@ func numOfItems(playerNumber, item):
 func numOfWeapons(playerNumber, weapon):
 	match playerNumber:
 		1:
-			return p1Inventory["weapon"][weapon]
+			if p1Inventory["weapon"].has(weapon):
+				return p1Inventory["weapon"][weapon]
 		2:
-			return p2Inventory["weapon"][weapon]
+			if p2Inventory["weapon"].has(weapon):
+				return p2Inventory["weapon"][weapon]
 		3:
-			return p3Inventory["weapon"][weapon]
+			if p3Inventory["weapon"].has(weapon):
+				return p3Inventory["weapon"][weapon]
 		4:
-			return p4Inventory["weapon"][weapon]
+			if p4Inventory["weapon"].has(weapon):
+				return p4Inventory["weapon"][weapon]
 	
 func numOfArmor(playerNumber, armor):
 	pass

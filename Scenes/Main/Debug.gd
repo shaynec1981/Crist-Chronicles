@@ -5,10 +5,10 @@ func _ready():
 	inventory.addItem(1, "weapon", "dart", 100)
 	inventory.addItem(1, "weapon", "wooden stick", 1)
 	inventory.addItem(1, "weapon", "boomerang", 1)
-	inventory.addItem(1, "weapon", "smoke bomb", 5)
+	inventory.addItem(1, "weapon", "smoke bomb", 20)
 	inventory.addItem(1, "weapon", "wood battle hammer", 1)
 	inventory.addItem(1, "weapon", "wood sword", 1)
-	inventory.p1Equipped["weapon"] = "stone"
+	inventory.p1Equipped["weapon"] = "smoke bomb"
 	inventory.addItem(2, "weapon", "stone", 50)
 	inventory.addItem(2, "weapon", "dart", 100)
 	inventory.addItem(2, "weapon", "wooden stick", 1)

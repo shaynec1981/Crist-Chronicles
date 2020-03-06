@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Worlds/World1/World1.gd" type="Script" id=1]
 [ext_resource path="res://Images/Backgrounds/bg1.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Scenes/Objects/Nonblocking/House1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Characters/monsters/FurBug/furBug.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Characters/npcs/SpikedHairMale/SpikedHairMale.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Characters/monsters/MaskedBug/maskedBug.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 25 )
@@ -93,12 +92,6 @@ position = Vector2( 2380, 980 )
 
 [node name="FurBug2" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 3405, 982 )
-
-[node name="FurBug3" parent="Enemies" instance=ExtResource( 10 )]
-position = Vector2( 2498, 985 )
-
-[node name="MaskedBug" parent="Enemies" instance=ExtResource( 12 )]
-position = Vector2( 1769, 998 )
 
 [node name="NPCs" type="Node2D" parent="."]
 

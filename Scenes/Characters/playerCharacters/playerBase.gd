@@ -262,14 +262,17 @@ func playerControls(control):
 				if inventory.equipped(1, "weapon").name != "empty":
 					if inventory.equipped(1, "weapon").type == "projectile":
 						if inventory.p1Inventory["weapon"][inventory.equipped(1, "weapon").name] > 0:
-							var projectile = inventory.database["weapon"][inventory.p1Equipped["weapon"]]["scene"].instance()
-							get_parent().get_parent().add_child(projectile)
-							projectile.determinePlayer(1)
-							inventory.p1Inventory["weapon"][inventory.p1Equipped["weapon"]] -= 1
-							if inventory.p1Inventory["weapon"][inventory.p1Equipped["weapon"]] <= 0:
-								inventory.p1Inventory["weapon"].erase(inventory.p1Equipped["weapon"])
-								inventory.p1InventoryArray[0].erase(inventory.p1Equipped["weapon"])
-								inventory.p1Equipped["weapon"] = ""
+							if (inventory.p1Equipped["weapon"] == "boomerang" && !global.p1BoomerangThrown) || inventory.p1Equipped["weapon"] != "boomerang":
+								var projectile = inventory.database["weapon"][inventory.p1Equipped["weapon"]]["scene"].instance()
+								get_parent().get_parent().add_child(projectile)
+								projectile.determinePlayer(1)
+								if inventory.p1Equipped["weapon"] != "boomerang":
+									inventory.p1Inventory["weapon"][inventory.p1Equipped["weapon"]] -= 1
+								if inventory.p1Inventory["weapon"][inventory.p1Equipped["weapon"]] <= 0:
+									inventory.p1Inventory["weapon"].erase(inventory.p1Equipped["weapon"])
+									inventory.p1InventoryArray[0].erase(inventory.p1Equipped["weapon"])
+									inventory.p1Equipped["weapon"] = ""
+								
 					elif inventory.database["weapon"][inventory.p1Equipped["weapon"]]["type"] == "melee":
 						if !isAttacking:
 							motion.x = 0
@@ -279,14 +282,16 @@ func playerControls(control):
 				if inventory.equipped(2, "weapon").name != "empty":
 					if inventory.equipped(2, "weapon").type == "projectile":
 						if inventory.p2Inventory["weapon"][inventory.equipped(2, "weapon").name] > 0:
-							var projectile = inventory.database["weapon"][inventory.p2Equipped["weapon"]]["scene"].instance()
-							get_parent().get_parent().add_child(projectile)
-							projectile.determinePlayer(2)
-							inventory.p2Inventory["weapon"][inventory.p2Equipped["weapon"]] -= 1
-							if inventory.p2Inventory["weapon"][inventory.p2Equipped["weapon"]] <= 0:
-								inventory.p2Inventory["weapon"].erase(inventory.p2Equipped["weapon"])
-								inventory.p2InventoryArray[0].erase(inventory.p1Equipped["weapon"])
-								inventory.p2Equipped["weapon"] = ""
+							if inventory.p2Equipped["weapon"] == "boomerang" && !global.p1BoomerangThrown:
+								var projectile = inventory.database["weapon"][inventory.p2Equipped["weapon"]]["scene"].instance()
+								get_parent().get_parent().add_child(projectile)
+								projectile.determinePlayer(2)
+								if inventory.p2Equipped["weapon"] != "boomerang":
+									inventory.p2Inventory["weapon"][inventory.p2Equipped["weapon"]] -= 1
+								if inventory.p2Inventory["weapon"][inventory.p2Equipped["weapon"]] <= 0:
+									inventory.p2Inventory["weapon"].erase(inventory.p2Equipped["weapon"])
+									inventory.p2InventoryArray[0].erase(inventory.p1Equipped["weapon"])
+									inventory.p2Equipped["weapon"] = ""
 					elif inventory.database["weapon"][inventory.p2Equipped["weapon"]]["type"] == "melee":
 						if !isAttacking:
 							motion.x = 0
@@ -296,14 +301,16 @@ func playerControls(control):
 				if inventory.equipped(3, "weapon").name != "empty":
 					if inventory.equipped(3, "weapon").type == "projectile":
 						if inventory.p3Inventory["weapon"][inventory.equipped(3, "weapon").name] > 0:
-							var projectile = inventory.database["weapon"][inventory.p3Equipped["weapon"]]["scene"].instance()
-							get_parent().get_parent().add_child(projectile)
-							projectile.determinePlayer(3)
-							inventory.p3Inventory["weapon"][inventory.p3Equipped["weapon"]] -= 1
-							if inventory.p3Inventory["weapon"][inventory.p3Equipped["weapon"]] <= 0:
-								inventory.p3Inventory["weapon"].erase(inventory.p3Equipped["weapon"])
-								inventory.p3InventoryArray[0].erase(inventory.p1Equipped["weapon"])
-								inventory.p3Equipped["weapon"] = ""
+							if inventory.p3Equipped["weapon"] == "boomerang" && !global.p1BoomerangThrown:
+								var projectile = inventory.database["weapon"][inventory.p3Equipped["weapon"]]["scene"].instance()
+								get_parent().get_parent().add_child(projectile)
+								projectile.determinePlayer(3)
+								if inventory.p3Equipped["weapon"] != "boomerang":
+									inventory.p3Inventory["weapon"][inventory.p3Equipped["weapon"]] -= 1
+								if inventory.p3Inventory["weapon"][inventory.p3Equipped["weapon"]] <= 0:
+									inventory.p3Inventory["weapon"].erase(inventory.p3Equipped["weapon"])
+									inventory.p3InventoryArray[0].erase(inventory.p1Equipped["weapon"])
+									inventory.p3Equipped["weapon"] = ""
 					elif inventory.database["weapon"][inventory.p3Equipped["weapon"]]["type"] == "melee":
 						if !isAttacking:
 							motion.x = 0
@@ -313,14 +320,16 @@ func playerControls(control):
 				if inventory.equipped(4, "weapon").name != "empty":
 					if inventory.equipped(4, "weapon").type == "projectile":
 						if inventory.p4Inventory["weapon"][inventory.equipped(4, "weapon").name] > 0:
-							var projectile = inventory.database["weapon"][inventory.p4Equipped["weapon"]]["scene"].instance()
-							get_parent().get_parent().add_child(projectile)
-							projectile.determinePlayer(4)
-							inventory.p4Inventory["weapon"][inventory.p4Equipped["weapon"]] -= 1
-							if inventory.p4Inventory["weapon"][inventory.p4Equipped["weapon"]] <= 0:
-								inventory.p4Inventory["weapon"].erase(inventory.p4Equipped["weapon"])
-								inventory.p4InventoryArray[0].erase(inventory.p1Equipped["weapon"])
-								inventory.p4Equipped["weapon"] = ""
+							if inventory.p4Equipped["weapon"] == "boomerang" && !global.p1BoomerangThrown:
+								var projectile = inventory.database["weapon"][inventory.p4Equipped["weapon"]]["scene"].instance()
+								get_parent().get_parent().add_child(projectile)
+								projectile.determinePlayer(4)
+								if inventory.p4Equipped["weapon"] != "boomerang":
+									inventory.p4Inventory["weapon"][inventory.p4Equipped["weapon"]] -= 1
+								if inventory.p4Inventory["weapon"][inventory.p4Equipped["weapon"]] <= 0:
+									inventory.p4Inventory["weapon"].erase(inventory.p4Equipped["weapon"])
+									inventory.p4InventoryArray[0].erase(inventory.p1Equipped["weapon"])
+									inventory.p4Equipped["weapon"] = ""
 					elif inventory.database["weapon"][inventory.p4Equipped["weapon"]]["type"] == "melee":
 						if !isAttacking:
 							motion.x = 0

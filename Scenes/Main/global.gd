@@ -38,6 +38,11 @@ var v2Message = false
 var v3Message = false
 var v4Message = false
 
+var p1BoomerangThrown = false
+var p2BoomerangThrown = false
+var p3BoomerangThrown = false
+var p4BoomerangThrown = false
+
 func _ready():
 	pass
 	

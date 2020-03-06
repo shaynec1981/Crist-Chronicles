@@ -17,6 +17,8 @@ Features
 
 5. Implement save system.
 
+6. Finish maskedBug enemy (graphics, animations, effects, attack).
+
 
 Ideas
 

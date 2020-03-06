@@ -55,15 +55,5 @@ func throw():
 func _on_Timer_timeout():
 	queue_free()
 
-func _on_dart_body_entered(body):
-	set_sleeping(true)
-	if body.get_parent().name == "Enemies":
-		body.health -= inventory.database["weapon"]["dart"]["baseDmg"]
-		set_max_contacts_reported(0)
-		body.isHit = true
-		body.state = "gotHit"
-	else:
-		set_max_contacts_reported(0)
-		
 func _physics_process(delta):
-	pass
+	$Particles2D.rotation = -rotation

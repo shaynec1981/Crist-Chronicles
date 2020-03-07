@@ -19,6 +19,9 @@ Features
 
 6. Finish maskedBug enemy (graphics, animations, effects, attack).
 
+7. Implement armor.
+
+8. Multiple characters each with their own unique abilities and attributes.
 
 Ideas
 
@@ -26,5 +29,19 @@ Ideas
    Innkeeper (Crossroads Inn), Adventurer (Platformer), Farmer (Stardew Valley), Engineer (makes items)
 
 2. Player can switch professions but takes a loss on previous professions skills.
+
+3. Randomized, named NPCs that fills in and competes with PC professions.
+
+4. Innkeeper can design inn, set prices, choose menu, hire adventurers, hire workers, buy ingredients
+   from farmer, buy furniture/decor/production equipment from engineer.
+
+5. Adventurer can take on missions from innkeepers board, gather ingredients for farmer, gather resources
+   for engineer, stay at inn, eat/drink at inn, buy/earn gear from engineer.
+
+6. Farmer can design farm, accept orders for ingredients from innkeeper, raise animals, hire farmhands,
+   buy farm equipment from engineer, hire adventurer to gather ingredients.
+
+7. Engineer can make all equipment/gear for innkeeper/adventurer/farmer, hire adventurer to gather
+   resources, 
 
 """

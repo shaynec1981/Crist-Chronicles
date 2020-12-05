@@ -1,7 +1,7 @@
 extends Node
 
 var numOfPlayers = 1
-
+var pauseGame = false
 var p1CharName
 var player1
 var p1Life = 6

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Scenes/Main/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Worlds/World1/World1.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Scenes/Objects/Weapons/wooden stick/stickIcon50x50.png" type="Texture" id=30]
 [ext_resource path="res://Scenes/Objects/Weapons/stone/stoneIcon50x50.png" type="Texture" id=31]
 [ext_resource path="res://Images/UI/selector.png" type="Texture" id=32]
+[ext_resource path="res://Scenes/Main/SaveAndLoad.gd" type="Script" id=33]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -161,6 +162,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SaveAndLoad" type="Node" parent="."]
+script = ExtResource( 33 )
 
 [node name="World1Container" type="Viewport" parent="."]
 
@@ -2359,8 +2363,7 @@ __meta__ = {
 }
 
 [node name="Indicator" type="Sprite" parent="dialogBoxName3"]
-visible = false
-position = Vector2( 0, 105 )
+position = Vector2( 0, 100.725 )
 texture = ExtResource( 21 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="dialogBoxName3"]
@@ -2435,6 +2438,22 @@ script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Save Button" type="Button" parent="."]
+margin_left = 258.0
+margin_top = 20.0
+margin_right = 301.0
+margin_bottom = 40.0
+rect_scale = Vector2( 3, 3 )
+text = "SAVE"
+
+[node name="Load Button" type="Button" parent="."]
+margin_left = 411.0
+margin_top = 20.0
+margin_right = 460.0
+margin_bottom = 40.0
+rect_scale = Vector2( 3, 3 )
+text = "LOAD"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ViewportContainer1/UICanvasLayer1/InventoryWindow/Tabs/ItemsButton" to="VBoxContainer/HBoxContainer/ViewportContainer1/UICanvasLayer1/InventoryWindow" method="_on_ItemsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ViewportContainer1/UICanvasLayer1/InventoryWindow/Tabs/WeaponsButton" to="VBoxContainer/HBoxContainer/ViewportContainer1/UICanvasLayer1/InventoryWindow" method="_on_WeaponsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ViewportContainer1/UICanvasLayer1/InventoryWindow/Tabs/ArmorButton" to="VBoxContainer/HBoxContainer/ViewportContainer1/UICanvasLayer1/InventoryWindow" method="_on_ArmorButton_pressed"]
@@ -2447,3 +2466,5 @@ __meta__ = {
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/ViewportContainer4/UICanvasLayer4/InventoryWindow4/Tabs/ItemsButton" to="VBoxContainer/HBoxContainer2/ViewportContainer4/UICanvasLayer4/InventoryWindow4" method="_on_ItemsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/ViewportContainer4/UICanvasLayer4/InventoryWindow4/Tabs/WeaponsButton" to="VBoxContainer/HBoxContainer2/ViewportContainer4/UICanvasLayer4/InventoryWindow4" method="_on_WeaponsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/ViewportContainer4/UICanvasLayer4/InventoryWindow4/Tabs/ArmorButton" to="VBoxContainer/HBoxContainer2/ViewportContainer4/UICanvasLayer4/InventoryWindow4" method="_on_ArmorButton_pressed"]
+[connection signal="button_up" from="Save Button" to="SaveAndLoad" method="_on_Save_Button_button_up"]
+[connection signal="button_up" from="Load Button" to="SaveAndLoad" method="_on_Load_Button_button_up"]

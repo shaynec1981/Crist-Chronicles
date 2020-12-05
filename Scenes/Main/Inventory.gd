@@ -38,7 +38,25 @@ func _ready():
 									 "icon": load("res://Scenes/Objects/Weapons/stone/stoneIcon50x50.png"),
 									 "baseDmg": 1,
 									 "value": 1,
-									 "type": "projectile"},   
+									 "type": "projectile"},
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									   
 						   "dart": { "name" : "dart",
 									 "scene": load("res://Scenes/Objects/Weapons/dart/dart.tscn"),
 									 "icon": load("res://Scenes/Objects/Weapons/dart/dartIcon50x50.png"),

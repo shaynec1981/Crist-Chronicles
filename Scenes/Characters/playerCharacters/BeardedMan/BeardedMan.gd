@@ -6,3 +6,5 @@ func _ready():
 	
 func spawnWeapon(weapon):
 	pass
+
+

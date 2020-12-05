@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.15, 0.15 ), Vector2( 0.15, 0.158969 ), Vector2( 0.15, 0.15 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "walking"
 loop = true
 tracks/0/type = "value"
@@ -63,24 +63,24 @@ tracks/1/keys = {
 "values": [ Vector2( 0.15, 0.15 ), Vector2( 0.191438, 0.160878 ), Vector2( 0.15, 0.15 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 28.7483
 height = 31.0124
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.0179372, 1 )
 colors = PoolColorArray( 1, 0.015625, 0.863495, 1, 0.623047, 0, 1, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0.0447155, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.534091 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 40, 10, 1 )
 flag_disable_z = true
@@ -92,8 +92,8 @@ angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 2.0
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 5 )
 
 [node name="MaskedBug" type="KinematicBody2D"]
 collision_layer = 32
@@ -106,7 +106,7 @@ mainAttackPower = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 1 )
-anims/walking = SubResource( 8 )
+anims/walking = SubResource( 2 )
 
 [node name="spriteContainer" type="Node2D" parent="."]
 
@@ -139,7 +139,7 @@ hframes = 13
 [node name="CollisionShape2DBody" type="CollisionShape2D" parent="."]
 position = Vector2( -3, -2 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="RayCast2DLeftAttack" type="RayCast2D" parent="."]
 position = Vector2( 9.34382, -9.53952 )
@@ -180,7 +180,7 @@ amount = 80
 lifetime = 1.5
 one_shot = true
 preprocess = 1.0
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 texture = ExtResource( 7 )
 [connection signal="timeout" from="Timer1" to="." method="_on_Timer1_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer1_timeout"]

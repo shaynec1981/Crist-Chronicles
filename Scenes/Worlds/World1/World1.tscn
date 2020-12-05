@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Worlds/World1/World1.gd" type="Script" id=1]
 [ext_resource path="res://Images/Backgrounds/bg1.png" type="Texture" id=2]
@@ -10,23 +10,12 @@
 [ext_resource path="res://Scenes/Objects/Nonblocking/Tree_2.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Objects/Nonblocking/House1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Characters/monsters/FurBug/furBug.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Characters/npcs/SpikedHairMale/SpikedHairMale.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 25 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 107.685, 42.4999 )
-
 [node name="World1Root" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="BG" type="Sprite" parent="."]
-z_index = -5
-texture = ExtResource( 2 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 7680, 1080 )
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -3
@@ -35,6 +24,13 @@ cell_size = Vector2( 128, 128 )
 collision_mask = 127
 format = 1
 tile_data = PoolIntArray( 393219, 0, 0, 393220, 1, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 2, 0, 524307, 2, 0, 524308, 2, 0, 524309, 2, 0, 524310, 2, 0, 524311, 2, 0, 524312, 2, 0, 524313, 2, 0, 524314, 2, 0, 524315, 2, 0, 524316, 2, 0, 524317, 2, 0, 524318, 2, 0, 524319, 2, 0, 524320, 1, 0, 524321, 3, 0, 524322, 3, 0, 524323, 3, 0, 524324, 3, 0, 524325, 3, 0, 524326, 3, 0, 524327, 3, 0, 524328, 3, 0, 524329, 3, 0, 524330, 3, 0, 524331, 3, 0, 524332, 3, 0, 524333, 3, 0, 524334, 3, 0, 524335, 3, 0, 524336, 3, 0, 524337, 3, 0, 524338, 3, 0, 524339, 3, 0, 524340, 3, 0, 524341, 3, 0, 524342, 3, 0, 524343, 3, 0, 524344, 3, 0, 524345, 3, 0, 524346, 3, 0, 524347, 3, 0 )
+
+[node name="BG" type="Sprite" parent="."]
+z_index = -5
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 7680, 1080 )
 
 [node name="BlockingObjects" type="Node2D" parent="."]
 
@@ -88,24 +84,9 @@ texture = ExtResource( 8 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="FurBug" parent="Enemies" instance=ExtResource( 10 )]
-position = Vector2( 2380, 980 )
-
-[node name="FurBug2" parent="Enemies" instance=ExtResource( 10 )]
-position = Vector2( 3405, 982 )
+position = Vector2( 2243, 983 )
 
 [node name="NPCs" type="Node2D" parent="."]
-
-[node name="npc1" parent="NPCs" instance=ExtResource( 11 )]
-position = Vector2( 1085.59, 960.81 )
-
-[node name="Sprite" parent="NPCs/npc1" index="0"]
-flip_h = true
-
-[node name="npc1" type="Area2D" parent="NPCs/npc1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/npc1/npc1"]
-position = Vector2( -7.68384, 9.52808 )
-shape = SubResource( 2 )
 
 [node name="editorOnlyTarget" type="Position2D" parent="."]
 position = Vector2( 1587.61, 967.453 )
@@ -113,9 +94,5 @@ position = Vector2( 1587.61, 967.453 )
 [connection signal="body_exited" from="NonblockingObjects/sign1/sign1" to="." method="_on_sign1_body_exited"]
 [connection signal="body_entered" from="NonblockingObjects/House1/house1Door" to="." method="_on_house1Door_body_entered"]
 [connection signal="body_exited" from="NonblockingObjects/House1/house1Door" to="." method="_on_house1Door_body_exited"]
-[connection signal="body_entered" from="NPCs/npc1/npc1" to="." method="_on_npc1_body_entered"]
-[connection signal="body_exited" from="NPCs/npc1/npc1" to="." method="_on_npc1_body_exited"]
 
 [editable path="NonblockingObjects/House1"]
-
-[editable path="NPCs/npc1"]

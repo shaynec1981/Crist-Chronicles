@@ -131,5 +131,5 @@ wait_time = 3.5
 one_shot = true
 autostart = true
 
-[node name="Node2D" parent="." instance=ExtResource( 12 )]
+[node name="Leaves" parent="." instance=ExtResource( 12 )]
 [connection signal="timeout" from="Timer1" to="." method="_on_Timer1_timeout"]

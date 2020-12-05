@@ -7,7 +7,9 @@
 radius = 23.7704
 height = 74.2718
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"persist",
+]]
 scale = Vector2( 0.85, 0.85 )
 z_index = -1
 collision_layer = 128

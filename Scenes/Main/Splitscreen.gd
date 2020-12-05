@@ -185,130 +185,130 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
-	
-	# Player 1 Controls
-	if Input.is_action_pressed("p1Right"):
-		global.player1.playerControls("right")
-	elif Input.is_action_pressed("p1Left"):
-		global.player1.playerControls("left")
-	elif global.player1.state != "gotHit":
-		global.player1.state = "idle"
-		global.player1.motion.x = lerp(global.player1.motion.x, 0, 0.2)
-		global.player1.get_node("AnimationPlayer").play("idle")
-	
-	if Input.is_action_just_pressed("p1Up"):
-		global.player1.playerControls("up")
-	
-	if Input.is_action_just_pressed("p1Down"):
-		global.player1.playerControls("down")
-	
-	if Input.is_action_just_pressed("p1Jump"):
-		global.player1.playerControls("jump")
+	if !global.pauseGame:
+		# Player 1 Controls
+		if Input.is_action_pressed("p1Right"):
+			global.player1.playerControls("right")
+		elif Input.is_action_pressed("p1Left"):
+			global.player1.playerControls("left")
+		elif global.player1.state != "gotHit":
+			global.player1.state = "idle"
+			global.player1.motion.x = lerp(global.player1.motion.x, 0, 0.2)
+			global.player1.get_node("AnimationPlayer").play("idle")
 		
-	if Input.is_action_just_pressed("p1Interact"):
-		global.player1.playerControls("interact")
+		if Input.is_action_just_pressed("p1Up"):
+			global.player1.playerControls("up")
 		
-	if Input.is_action_just_pressed("p1LeftBumper"):
-		global.player1.playerControls("lBumper")
+		if Input.is_action_just_pressed("p1Down"):
+			global.player1.playerControls("down")
 		
-	if Input.is_action_just_pressed("p1RightBumper"):
-		global.player1.playerControls("rBumper")
-		
-	if Input.is_action_just_pressed("p1Menu"):
-		global.player1.playerControls("inventory")
-	
-	if global.numOfPlayers > 1:
-		# Player 2 Controls
-		if Input.is_action_pressed("p2Right"):
-			global.player2.playerControls("right")
-		elif Input.is_action_pressed("p2Left"):
-			global.player2.playerControls("left")
-		elif global.player2.state != "gotHit":
-			global.player2.state = "idle"
-			global.player2.motion.x = lerp(global.player2.motion.x, 0, 0.2)
-			global.player2.get_node("AnimationPlayer").play("idle")
+		if Input.is_action_just_pressed("p1Jump"):
+			global.player1.playerControls("jump")
 			
-		if Input.is_action_just_pressed("p2Up"):
-			global.player2.playerControls("up")
-	
-		if Input.is_action_just_pressed("p2Down"):
-			global.player2.playerControls("down")
-		
-		if Input.is_action_just_pressed("p2Jump"):
-			global.player2.playerControls("jump")
-		
-		if Input.is_action_just_pressed("p2Interact"):
-			global.player2.playerControls("interact")
+		if Input.is_action_just_pressed("p1Interact"):
+			global.player1.playerControls("interact")
 			
-		if Input.is_action_just_pressed("p2LeftBumper"):
-			global.player2.playerControls("lBumper")
-		
-		if Input.is_action_just_pressed("p2RightBumper"):
-			global.player2.playerControls("rBumper")
+		if Input.is_action_just_pressed("p1LeftBumper"):
+			global.player1.playerControls("lBumper")
 			
-		if Input.is_action_just_pressed("p2Menu"):
-			global.player2.playerControls("inventory")
-		
-	if global.numOfPlayers > 2:
-		# Player 3 Controls
-		if Input.is_action_pressed("p3Right"):
-			global.player3.playerControls("right")
-		elif Input.is_action_pressed("p3Left"):
-			global.player3.playerControls("left")
-		elif global.player3.state != "gotHit":
-			global.player3.state = "idle"
-			global.player3.motion.x = lerp(global.player3.motion.x, 0, 0.2)
-			global.player3.get_node("AnimationPlayer").play("idle")
-		
-		if Input.is_action_just_pressed("p3Jump"):
-			global.player3.playerControls("jump")
+		if Input.is_action_just_pressed("p1RightBumper"):
+			global.player1.playerControls("rBumper")
 			
-		if Input.is_action_just_pressed("p3Up"):
-			global.player3.playerControls("up")
-	
-		if Input.is_action_just_pressed("p3Down"):
-			global.player3.playerControls("down")
+		if Input.is_action_just_pressed("p1Menu"):
+			global.player1.playerControls("inventory")
 		
-		if Input.is_action_just_pressed("p3Interact"):
-			global.player3.playerControls("interact")
+		if global.numOfPlayers > 1:
+			# Player 2 Controls
+			if Input.is_action_pressed("p2Right"):
+				global.player2.playerControls("right")
+			elif Input.is_action_pressed("p2Left"):
+				global.player2.playerControls("left")
+			elif global.player2.state != "gotHit":
+				global.player2.state = "idle"
+				global.player2.motion.x = lerp(global.player2.motion.x, 0, 0.2)
+				global.player2.get_node("AnimationPlayer").play("idle")
+				
+			if Input.is_action_just_pressed("p2Up"):
+				global.player2.playerControls("up")
+		
+			if Input.is_action_just_pressed("p2Down"):
+				global.player2.playerControls("down")
 			
-		if Input.is_action_just_pressed("p3LeftBumper"):
-			global.player3.playerControls("lBumper")
-		
-		if Input.is_action_just_pressed("p3RightBumper"):
-			global.player3.playerControls("rBumper")
+			if Input.is_action_just_pressed("p2Jump"):
+				global.player2.playerControls("jump")
 			
-		if Input.is_action_just_pressed("p3Menu"):
-			global.player3.playerControls("inventory")
-		
-	if global.numOfPlayers > 3:
-		# Player 4 Controls
-		if Input.is_action_pressed("p4Right"):
-			global.player4.playerControls("right")
-		elif Input.is_action_pressed("p4Left"):
-			global.player4.playerControls("left")
-		elif global.player4.state != "gotHit":
-			global.player4.state = "idle"
-			global.player4.motion.x = lerp(global.player4.motion.x, 0, 0.2)
-			global.player4.get_node("AnimationPlayer").play("idle")
-		
-		if Input.is_action_just_pressed("p4Jump"):
-			global.player4.playerControls("jump")
+			if Input.is_action_just_pressed("p2Interact"):
+				global.player2.playerControls("interact")
+				
+			if Input.is_action_just_pressed("p2LeftBumper"):
+				global.player2.playerControls("lBumper")
 			
-		if Input.is_action_just_pressed("p4Up"):
-			global.player4.playerControls("up")
-	
-		if Input.is_action_just_pressed("p4Down"):
-			global.player4.playerControls("down")
-		
-		if Input.is_action_just_pressed("p4Interact"):
-			global.player4.playerControls("interact")
-	
-		if Input.is_action_just_pressed("p4LeftBumper"):
-			global.player4.playerControls("lBumper")
-		
-		if Input.is_action_just_pressed("p4RightBumper"):
-			global.player4.playerControls("rBumper")
+			if Input.is_action_just_pressed("p2RightBumper"):
+				global.player2.playerControls("rBumper")
+				
+			if Input.is_action_just_pressed("p2Menu"):
+				global.player2.playerControls("inventory")
 			
-		if Input.is_action_just_pressed("p4Menu"):
-			global.player4.playerControls("inventory")
+		if global.numOfPlayers > 2:
+			# Player 3 Controls
+			if Input.is_action_pressed("p3Right"):
+				global.player3.playerControls("right")
+			elif Input.is_action_pressed("p3Left"):
+				global.player3.playerControls("left")
+			elif global.player3.state != "gotHit":
+				global.player3.state = "idle"
+				global.player3.motion.x = lerp(global.player3.motion.x, 0, 0.2)
+				global.player3.get_node("AnimationPlayer").play("idle")
+			
+			if Input.is_action_just_pressed("p3Jump"):
+				global.player3.playerControls("jump")
+				
+			if Input.is_action_just_pressed("p3Up"):
+				global.player3.playerControls("up")
+		
+			if Input.is_action_just_pressed("p3Down"):
+				global.player3.playerControls("down")
+			
+			if Input.is_action_just_pressed("p3Interact"):
+				global.player3.playerControls("interact")
+				
+			if Input.is_action_just_pressed("p3LeftBumper"):
+				global.player3.playerControls("lBumper")
+			
+			if Input.is_action_just_pressed("p3RightBumper"):
+				global.player3.playerControls("rBumper")
+				
+			if Input.is_action_just_pressed("p3Menu"):
+				global.player3.playerControls("inventory")
+			
+		if global.numOfPlayers > 3:
+			# Player 4 Controls
+			if Input.is_action_pressed("p4Right"):
+				global.player4.playerControls("right")
+			elif Input.is_action_pressed("p4Left"):
+				global.player4.playerControls("left")
+			elif global.player4.state != "gotHit":
+				global.player4.state = "idle"
+				global.player4.motion.x = lerp(global.player4.motion.x, 0, 0.2)
+				global.player4.get_node("AnimationPlayer").play("idle")
+			
+			if Input.is_action_just_pressed("p4Jump"):
+				global.player4.playerControls("jump")
+				
+			if Input.is_action_just_pressed("p4Up"):
+				global.player4.playerControls("up")
+		
+			if Input.is_action_just_pressed("p4Down"):
+				global.player4.playerControls("down")
+			
+			if Input.is_action_just_pressed("p4Interact"):
+				global.player4.playerControls("interact")
+		
+			if Input.is_action_just_pressed("p4LeftBumper"):
+				global.player4.playerControls("lBumper")
+			
+			if Input.is_action_just_pressed("p4RightBumper"):
+				global.player4.playerControls("rBumper")
+				
+			if Input.is_action_just_pressed("p4Menu"):
+				global.player4.playerControls("inventory")

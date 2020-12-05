@@ -35,6 +35,7 @@ _global_script_class_icons={
 config/name="Crist Chronicles"
 run/main_scene="res://Scenes/Main/Title.tscn"
 config/icon="res://icon.png"
+config/version="0.0.1"
 
 [autoload]
 
@@ -45,7 +46,6 @@ inventory="*res://Scenes/Main/Inventory.gd"
 
 window/size/width=1920
 window/size/height=1080
-window/size/resizable=false
 window/size/always_on_top=true
 window/size/test_width=960
 window/size/test_height=540

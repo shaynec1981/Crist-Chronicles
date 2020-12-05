@@ -492,3 +492,29 @@ func afterGotHit():
 
 func _on_Timer_timeout():
 	pass # Replace with function body.
+
+func get_saved_data():
+	return {
+		"filename": filename,
+		"parent": get_parent().get_path(),
+		"properties": {
+			"position": position,
+			"lastState": lastState,
+			"state": state,
+			"facingDirection": facingDirection,
+			"withinInteractableRange": withinInteractableRange,
+			"transitionTarget": transitionTarget,
+			"invulnerable": invulnerable,
+			"stunned": stunned,
+			"controlsEnabled": controlsEnabled,
+			"p1MessageDisplayed": p1MessageDisplayed,
+			"p2MessageDisplayed": p2MessageDisplayed,
+			"p3MessageDisplayed": p3MessageDisplayed,
+			"p4MessageDisplayed": p4MessageDisplayed,
+			"isDead": isDead,
+			"playerNumber": playerNumber,
+			"isAttacking": isAttacking,
+			"inventoryOpen": inventoryOpen,
+			"currentSprite": currentSprite,
+		}
+	}

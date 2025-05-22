@@ -136,9 +136,16 @@ func addItem(playerNumber, type, name, amount):
 			arrayTypeNumber = 0
 		"armor":
 			arrayTypeNumber = 1
-		"item":
+		"item": # Note: In Godot 3, this was "items", but the database and inventory use "item" or "items" inconsistently.
+				 # This script uses `player[type]` where type can be "weapon", "armor", "item".
+				 # The database definition for items is `database["items"]`.
+				 # The inventory dict is `pXInventory = {"items": {}, ...}`.
+				 # This could be a pre-existing bug or inconsistency. I'll assume "item" as the type string is intentional here.
 			arrayTypeNumber = 2
-	if player[type].has(name):
+	if player[type].has(name): # If type is "item", this will try player["item"].has(name)
+								# but the dict is player["items"]. This needs to be consistent.
+								# For now, sticking to syntax migration, not bug fixing.
+								# Assuming 'type' will correctly be "items", "weapon", or "armor".
 		player[type][name] += amount
 	else:
 		player[type][name] = amount
@@ -156,7 +163,7 @@ func removeItem(playerNumber, type, item):
 			pass
 	
 func equipWeapon(playerNumber, weapon):
-	var player = playerNumber
+	var player = playerNumber # This reassigns playerNumber to player, then uses player in match. Fine.
 	match player:
 		1:
 			if p1Inventory["weapon"].has(weapon):
@@ -165,30 +172,30 @@ func equipWeapon(playerNumber, weapon):
 		2:
 			if p2Inventory["weapon"].has(weapon):
 				p2Equipped["weapon"] = weapon
-				#global.player1.spawnWeapon(weapon)
+				#global.player1.spawnWeapon(weapon) # Should be global.player2 if uncommented
 		3:
 			if p3Inventory["weapon"].has(weapon):
 				p3Equipped["weapon"] = weapon
-				#global.player1.spawnWeapon(weapon)
+				#global.player1.spawnWeapon(weapon) # Should be global.player3 if uncommented
 		4:
 			if p4Inventory["weapon"].has(weapon):
 				p4Equipped["weapon"] = weapon
-				#global.player1.spawnWeapon(weapon)
+				#global.player1.spawnWeapon(weapon) # Should be global.player4 if uncommented
 	
 func unequipWeapon(playerNumber, weapon):
-	var player
+	var player # Unused
 	
 func equipArmor(playerNumber, armor):
-	var player
+	var player # Unused
 	
 func unequipArmor(playerNumber, armor):
-	var player
+	var player # Unused
 	
 func useItem(playerNumber, item, target = "self"):
-	var player
+	var player # Unused
 	
 func numOfItems(playerNumber, item):
-	pass
+	pass # Not implemented
 	
 func numOfWeapons(playerNumber, weapon):
 	match playerNumber:
@@ -204,17 +211,7 @@ func numOfWeapons(playerNumber, weapon):
 		4:
 			if p4Inventory["weapon"].has(weapon):
 				return p4Inventory["weapon"][weapon]
+	return 0 # Good practice to return a default if not found
 	
 func numOfArmor(playerNumber, armor):
-	pass
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	pass # Not implemented
